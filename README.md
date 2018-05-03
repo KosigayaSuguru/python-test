@@ -17,3 +17,7 @@ python -m pip install "filename.whl"
 ```
 
 で手動で入れれる。
+
+### virtualenvのPython仮想環境をVisual Studio Codeにも有効させる
+
+https://qiita.com/thatbin/items/2de0a0c1ea21af10f6e3
