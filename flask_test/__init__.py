@@ -1,5 +1,5 @@
 from flask import Flask
-from . import route1
+from flask_test import route1
 
 app = Flask(__name__)
 

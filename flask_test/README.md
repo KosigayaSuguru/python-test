@@ -7,7 +7,7 @@
 下記の環境変数の設定が必要
 
 * FLASK_APP
-  1. 起動するPythonファイルを指定する  
+  1. 起動するPythonファイルを指定する
     ※未指定の場合、app.pyがデフォルトっぽい？
   2. \__init__.py が含まれるフォルダ名を指定する
 * FLASK_ENV
@@ -27,7 +27,7 @@ flask run
 下記のようなフォルダ構成の状態で、
 
 ```code
-c:\self\program\python-test\flask-test
+c:\self\program\python-test\flask_test
 │  __init__.py
 ```
 
@@ -35,7 +35,7 @@ c:\self\program\python-test\flask-test
 
 ```code
 cd c:\self\program\python-test
-set FLASK_APP=flask-test
+set FLASK_APP=flask_test
 set FLASK_ENV=development
 flask run
 ```
