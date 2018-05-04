@@ -38,4 +38,6 @@ cd c:\self\program\python-test
 set FLASK_APP=flask_test
 set FLASK_ENV=development
 flask run
+
+※ カレントが c:\self\program\python-test で　flask run することに注意
 ```
