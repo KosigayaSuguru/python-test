@@ -22,6 +22,28 @@ python -m pip install "filename.whl"
 
 <https://qiita.com/thatbin/items/2de0a0c1ea21af10f6e3>
 
+## 基本
+
+### モジュール化（自作を import する）
+
+\__init__.py がいるところがモジュールの起点になる。
+
+```code
+c:\self\program\python-test\flask_test
+│  __init__.py
+│
+└─controllers
+   └─ route1.py
+```
+
+上記の状態の場合、\__init__.py から見た route1.py は、
+
+```python
+from flask_test.controllers import route1
+```
+
+になる。
+
 ## Flask
 
 ### 事前準備
