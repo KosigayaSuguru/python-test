@@ -41,3 +41,25 @@ flask run
 
 ※ カレントが c:\self\program\python-test で　flask run することに注意
 ```
+
+## 実装部分
+
+### Flask の Blueprint で app オブジェクトが欲しくなったら
+
+↓の app を参照したい時、
+
+```python
+app = Flask(__name__)
+```
+
+別のファイルから呼び出す場合は、
+
+```python
+from flask import current_app
+
+current_app.logger.info("hogehoge")
+```
+
+みたいな感じで呼び出せる。
+
+※参考 http://d.hatena.ne.jp/heavenshell/20110824/1314190929
