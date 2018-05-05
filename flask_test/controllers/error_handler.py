@@ -3,6 +3,7 @@ def error(ex):
     """例外に対して、固有のメッセージ（error_handle_test）と
     レスポンスコード（500）を設定
     """
+    print(ex)
     return "error_handle_test", 500
 
 
