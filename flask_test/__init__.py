@@ -4,6 +4,17 @@ from flask_test.controllers import error_handler
 from werkzeug.exceptions import BadRequest
 
 app = Flask(__name__)
+app.config.from_pyfile(".\\config\\application.cfg")
+print("---- show config ----")
+# app.configに設定されている値を全部出す
+for k, v in app.config.items():
+    print(f"key: {k}, value: {v}")
+
+# app.configの個別に確認したい値表示
+print(f"app.env: {app.env}, app.debug: {app.debug}")
+print(f"app.root_path: {app.root_path}")
+print(f"app.instance_path: {app.instance_path}")
+print("---------------------")
 
 
 @app.route('/hello')
