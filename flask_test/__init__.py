@@ -13,7 +13,6 @@ def hello_world():
 
 @app.route('/error_handle_test_badrequest')
 def error_handle_test_badrequest():
-
     """エラーハンドリング確認用\n
     ※register_error_handler(BadRequest)でBadRequest例外を処理する確認\n
     """
@@ -22,7 +21,6 @@ def error_handle_test_badrequest():
 
 @app.route('/error_handle_test')
 def error_handle_test():
-
     """エラーハンドリング確認用\n
     ※register_error_handler(Exception)で例外を全部処理する確認\n
     ※BadRequest例外は、専用の例外ハンドラに行くのも確認\n
