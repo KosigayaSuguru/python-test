@@ -22,6 +22,11 @@ def hello_world():
     return "Hello, world"
 
 
+@app.route('/favicon.ico')
+def favicon():
+    return "", 404
+
+
 @app.route('/error_handle_test_badrequest')
 def error_handle_test_badrequest():
     """エラーハンドリング確認用\n
