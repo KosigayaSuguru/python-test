@@ -42,6 +42,10 @@ flask run
 ※ カレントが c:\self\program\python-test で　flask run することに注意
 ```
 
+#### デバッグ起動
+
+vscodeの場合、同梱されているlaunch.jsonを使って起動させる。  
+
 ## 実装部分
 
 ### Flask の Blueprint で app オブジェクトが欲しくなったら
