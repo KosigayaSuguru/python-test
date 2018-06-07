@@ -55,6 +55,14 @@ from flask_test.controllers import route1
 
 になる。
 
+## デバッグ
+
+### VSCのデバッガ
+
+デバッグコンソール使うと、java@eclipseの"表示"的なことができる。  
+※ブレークした所でその場でコード打って実行できる
+
+
 ## Flask
 
 ### 事前準備
