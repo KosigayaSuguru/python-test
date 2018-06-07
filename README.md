@@ -22,6 +22,17 @@ python -m pip install "filename.whl"
 
 <https://qiita.com/thatbin/items/2de0a0c1ea21af10f6e3>
 
+### virtualenvのPython仮想環境をVisual Studio Codeにも有効させる2
+
+下記のような感じで、virtualenvが追加したpython, ライブラリのパスを入れるでも一応OKかも。  
+※venv_flask が仮想環境名  
+※venv を起動してから code.exe するのを推奨
+
+```code
+"python.pythonPath": "C:\self\program\python-test\venv_flask\Scripts\python.exe"
+"python.autoComplete.extraPaths": ["C:\self\program\python-test\venv_flask\Lib\site-packages"]
+```
+
 ## 基本
 
 ### モジュール化（自作を import する）
