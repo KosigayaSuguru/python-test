@@ -3,7 +3,7 @@ from flask_test.models.TestJsonSerialize import TestJsonSerialize
 import pyckson
 from flask import json
 from flask import current_app
-from threading import local
+from threading import local, current_thread
 from flask_test.controllers.thread_local1 import ThreadLocalTest1
 from flask_test.controllers.thread_local2 import ThreadLocalTest2
 from time import sleep
@@ -15,6 +15,25 @@ app_route1 = Blueprint("route1", __name__, url_prefix="/route1")
 @app_route1.route("/test")
 def test():
     return "/route1/test"
+
+
+@app_route1.route("/test_flask_g")
+def test_flask_g():
+    """
+    flask.gのスレッドローカル性チェック
+    ※
+    /test_flask_g に対してリクエストを連打し、数字の部分が別スレッドからの処理で上書きされないことを確認する
+    """
+
+    from flask_test.controllers import flask_g
+    g = flask_g.FlaskG()
+    gg = g.getData()
+    sleep(random.randint(1, 5))
+    ggg = g.getData()
+    p = "thread: {}, before: {}, after: {}".format(
+        id(current_thread()), gg, ggg)
+    print(p)
+    return p
 
 
 @app_route1.route("/test_thread_local")

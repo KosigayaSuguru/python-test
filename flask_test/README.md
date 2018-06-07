@@ -68,6 +68,11 @@ current_app.logger.info("hogehoge")
 
 ※参考 http://d.hatena.ne.jp/heavenshell/20110824/1314190929
 
+### flask でスレッドローカル
+
+flask.g を使う。  
+※普通に threading.local() を使ってもよいけど。
+
 ### 設定ファイルから設定値を取得する
 
 * app.config.from_pyfile() を使う。  
