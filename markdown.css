@@ -1,0 +1,14 @@
+h2 {
+    text-decoration: underline;
+}
+h3 {
+    color: white;
+    background-color: rgb(29, 29, 63);
+    padding: 8px 8px 8px 8px;
+    border-radius: 4px;
+}
+h4 {
+    border-left: solid;
+    margin-left: 1em;
+    padding-left: 1em;
+}
