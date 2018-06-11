@@ -1,0 +1,12 @@
+{
+    "python.pythonPath": "${workspaceFolder}\\hoge\\Scripts\\python.exe",
+    "python.linting.pylintEnabled": false,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "hoge": true
+    }
+}
