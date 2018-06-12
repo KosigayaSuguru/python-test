@@ -4,7 +4,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python Flask",
+            "name": "flask runを使って起動させる", //flask runを使うとオートリロードできない。。
             "type": "python",
             "request": "launch",
             "module": "flask",
@@ -17,6 +17,16 @@
                 "--no-debugger",
                 "--no-reload"
             ],
+        },
+        {
+            "name": "flask runを使わないで起動させる",
+            "type": "python",
+            "request": "launch",
+            "pythonPath": "C:/self/program/python-test/venv_flask/Scripts/python.exe",
+            "program": "C:/self/program/python-test/flask_test/__init__.py",
+            "env": {
+                "pythonPath": "C:/self/program/python-test/" //Pythonのパス検索対象にflask_testを追加する
+            }
         }
     ]
 }

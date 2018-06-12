@@ -54,3 +54,8 @@ app.register_error_handler(Exception, error_handler.error)
 # エラーハンドラ追加（BadRequest例外を処理する）
 app.register_error_handler(
     BadRequest, error_handler.error_badrequest)
+
+if __name__ == "__main__":
+    # リロードをonにするとデバッグ時にbreakできなくなる。。
+    # app.run(debug=True, use_reloader=True, use_debugger=True)
+    app.run()
