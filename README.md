@@ -6,6 +6,36 @@
 
 <https://www.python.jp/install/windows/index.html> が分かりやすい
 
+
+### Python実行時に個別でパスを通したい時
+
+環境変数 PYTHONPATH に個別に追加したいパスを登録する。  
+  
+※参考
+
+* [PYTHONPATHとは](https://ja.stackoverflow.com/questions/12174/pythonpath%E3%81%A8%E3%81%AF)
+* launch.jsonの　"flask runを使わないで起動させる"　の env のところ
+
+### Python実行時に検索対象となるモジュール
+
+
+* 入力されたスクリプトのあるディレクトリ (あるいはファイルが指定されなかったときはカレントディレクトリ)。
+* PYTHONPATH (ディレクトリ名のリスト。シェル変数の PATH と同じ構文)。
+* インストールごとのデフォルト。
+* ※上記のパス"のみ"が対象で、そこから下の階層を再帰的に検索するわけではないので要注意
+  * 下の階層も対象にしたい場合は個別に追加する必要がある
+
+pythonコマンド実行時点でどこを検索しに行っているかを確認するのは、
+
+```python
+import sys
+sys.path
+```
+
+※参考
+
+* [公式](https://docs.python.jp/3/tutorial/modules.html) の"モジュール検索パス"
+
 ### pipコマンドからinstall出来ない時
 
 <https://pypi.org/project/virtualenv/#files>
