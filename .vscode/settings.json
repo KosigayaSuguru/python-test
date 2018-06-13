@@ -7,9 +7,13 @@
         "**/CVS": true,
         "**/.DS_Store": true,
         "**/__pycache__": true,
+        "**/.pytest_cache": true,
     },
     "editor.formatOnSave": true,
     "markdown.styles": [
         "markdown.css"
+    ],
+    "python.venvFolders": [
+        "venv_flask",
     ],
 }

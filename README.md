@@ -92,6 +92,22 @@ from flask_test.controllers import route1
 デバッグコンソール使うと、java@eclipseの"表示"的なことができる。  
 ※ブレークした所でその場でコード打って実行できる
 
+## pytest
+
+### 起動
+
+```bash
+python -m pytest
+```
+
+ファイルを指定しない場合、test_*.pyがすべて実行される。  
+ファイルを指定した場合、そのファイルのみ実行される。
+
+### print()した内容を出力する
+
+```bash
+python -m pytest -s
+```
 
 ## Flask
 
