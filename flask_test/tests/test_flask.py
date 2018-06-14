@@ -45,3 +45,10 @@ class TestClass():
     def test_2nd(self):
         print("test_2nd() run")
         assert 0 == 0
+
+    def test_標準出力のキャプチャ(self, capsys):
+        print("test_first() run")
+        print("test_first() run")
+        captured = capsys.readouterr()
+        # pytest.set_trace()
+        assert captured.out == "test_first() run\ntest_first() run\n"
