@@ -16,4 +16,11 @@
     "python.venvFolders": [
         "venv_flask",
     ],
+    "python.unitTest.pyTestArgs": [
+        "-s",
+        "flask_test",
+    ],
+    "python.unitTest.unittestEnabled": false,
+    "python.unitTest.nosetestsEnabled": false,
+    "python.unitTest.pyTestEnabled": true,
 }
