@@ -27,6 +27,25 @@
             "env": {
                 "pythonPath": "C:/self/program/python-test/" //Pythonのパス検索対象にflask_testを追加する
             }
-        }
+        },
+        {
+            "name": "pytestでデバッガ使う",
+            "type": "python",
+            "request": "launch",
+            "module": "pytest",
+            "args": [
+                "flask_test/tests/"
+            ],
+        },
+        {
+            "name": "リモートデバッグ",
+            "type": "python",
+            "request": "attach",
+            "port": 3000,
+            "host": "localhost",
+            "secret": "my_secret",
+            "localRoot": "${workspaceFolder}",
+            "remoteRoot": "${workspaceFolder}",
+        },
     ]
 }

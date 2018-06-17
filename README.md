@@ -87,10 +87,24 @@ from flask_test.controllers import route1
 
 ## デバッグ
 
-### VSCのデバッガ
+### pythonのデバッグ
 
-デバッグコンソール使うと、java@eclipseの"表示"的なことができる。  
+python起動時に -d オプションを付ける。  
+※多分、IDEとかもデバッグモードで起動させる時は-dを付けてると思われる  
+
+```bash
+python -m -d
+```
+
+### VSCのデバッガ その１
+
+デバッグコンソール使うと、java@eclipseのデバッグの"表示"的なことができる。  
 ※ブレークした所でその場でコード打って実行できる
+
+### VSCのデバッガ その2
+
+VSCはデバッグ用に 'PythonTools\visualstudio_py_launcher.py' をプロキシとして噛ませてるっぽい。  
+ので、VSCからデバッガを起動させるようにすると何でもブレーク張れる。
 
 ## pytest
 
@@ -107,6 +121,30 @@ python -m pytest
 
 ```bash
 python -m pytest -s
+```
+
+### pytestでデバッガを起動させる その1（PDBを起動させる）
+
+ブレークさせたいところに下記を記入。
+
+```python
+import pdb;pdb.set_trace()
+```
+
+### pytestでデバッガを起動させる その2（visual studio code限定）
+
+下記のコードを実行すると、3000ポートでリモートデバッグを受け付けるようになる。  
+※接続用の起動の仕方は、launch.json の"リモートデバッグ"を参照  
+※サンプルコード： test_flask.py の test_pytestでデバッガを使う_VisualStudioCode()
+
+```python
+import ptvsd
+from time import sleep
+print('waiting...')
+ptvsd.enable_attach('my_secret', address=('0.0.0.0', 3000))
+ptvsd.wait_for_attach()
+sleep(1)
+print('Debug Start')
 ```
 
 ## Flask
