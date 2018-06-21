@@ -106,6 +106,36 @@ python -m -d
 VSCはデバッグ用に 'PythonTools\visualstudio_py_launcher.py' をプロキシとして噛ませてるっぽい。  
 ので、VSCからデバッガを起動させるようにすると何でもブレーク張れる。
 
+### PyDev（eclipseのpythonプラグイン）でリモートデバッグ
+
+```bash
+pip install pydevd
+```
+
+する。デバッグしたいコード中に、
+
+```python
+import pydevd; pydevd.settrace()
+```
+
+を入れてコードを実行する。↑を入れたところでコードが止まるので、  
+PyDevのデバッグビューで↓を実行する。
+
+```code
+メニュー > PyDev > "デバッグ・サーバーの開始"
+```
+
+ブレークするので、後は普通にいつもの感覚でデバッグできる（ので、とりあえず最初にブレークさせて良いかも）。  
+
+* eclipse上であれば普段のeclipseのやり方でブレークを張る。
+* コマンドラインからインタラクティブにPythonを起動している場合、pydevd.settrace()する毎にブレークする。
+
+※注意  
+
+* リモートデバッグ時の場合は、settrace()の引数にIP入れる。  
+  * pydevd.settrace("192.168.0.200")みたいな感じ、多分。。  
+  * [PyDev公式](http://www.pydev.org/manual_adv_remote_debugger.html) の"Important Notes"参照
+
 ## pytest
 
 ### 起動
