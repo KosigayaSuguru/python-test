@@ -1,15 +1,30 @@
-from flask import Blueprint
-from flask_test.models.TestJsonSerialize import TestJsonSerialize
+import random
+from threading import current_thread, local
+from time import sleep
+
 import pyckson
-from flask import json
-from flask import current_app
-from threading import local, current_thread
+from flask import Blueprint, current_app, json
+
 from flask_test.controllers.thread_local1 import ThreadLocalTest1
 from flask_test.controllers.thread_local2 import ThreadLocalTest2
-from time import sleep
-import random
+from flask_test.models.exceptions import MyBlueprintException
+from flask_test.models.TestJsonSerialize import TestJsonSerialize
 
 app_route1 = Blueprint("route1", __name__, url_prefix="/route1")
+
+
+@app_route1.errorhandler(MyBlueprintException)
+def exception_handle(ex):
+    """
+    errorhandlerのデコレータを使ってエラーハンドリングする
+    exception_raiser()とセット
+    """
+    return "blueprint exception handler test", 500
+
+
+@app_route1.route("/test_blueprint_exception_handler")
+def exception_raiser():
+    raise MyBlueprintException()
 
 
 @app_route1.route("/test")

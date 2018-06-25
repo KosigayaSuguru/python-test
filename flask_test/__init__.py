@@ -2,6 +2,7 @@ from flask import Flask
 from flask_test.controllers import route1
 from flask_test.controllers import error_handler
 from werkzeug.exceptions import BadRequest
+from flask_test.models.exceptions import MyFlaskException
 
 app = Flask(__name__)
 app.config.from_pyfile(".\\config\\application.cfg")
@@ -29,20 +30,35 @@ def favicon():
 
 @app.route('/error_handle_test_badrequest')
 def error_handle_test_badrequest():
-    """エラーハンドリング確認用\n
-    ※register_error_handler(BadRequest)でBadRequest例外を処理する確認\n
+    """エラーハンドリング確認用
+    ※register_error_handler(BadRequest)でBadRequest例外を処理する確認
     """
     raise BadRequest("my BadRequest message")
 
 
 @app.route('/error_handle_test')
 def error_handle_test():
-    """エラーハンドリング確認用\n
-    ※register_error_handler(Exception)で例外を全部処理する確認\n
-    ※BadRequest例外は、専用の例外ハンドラに行くのも確認\n
+    """エラーハンドリング確認用
+    ※register_error_handler(Exception)で例外を全部処理する確認
+    ※BadRequest例外は、専用の例外ハンドラに行くのも確認
     """
 
     raise Exception("error_handle_test")
+
+
+@app.errorhandler(MyFlaskException)
+def exception_handle(ex):
+    """
+    errorhandlerのデコレータを使ってエラーハンドリングする
+    exception_raiser()とセット
+    """
+    return "myflask exception handler test", 500
+
+
+@app.route("/test_flask_exception_handler")
+def exception_raiser():
+    raise MyFlaskException()
+
 
 
 # コントローラをルーティングに追加
