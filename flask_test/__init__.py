@@ -1,3 +1,4 @@
+from flask.json import jsonify
 from flask import Flask
 from flask_test.controllers import route1
 from flask_test.controllers import error_handler
@@ -16,6 +17,20 @@ print(f"app.env: {app.env}, app.debug: {app.debug}")
 print(f"app.root_path: {app.root_path}")
 print(f"app.instance_path: {app.instance_path}")
 print("---------------------")
+
+
+@app.route("/site-map")
+def site_map():
+    url_list = ""
+    for rule in app.url_map.iter_rules():
+        url_list = f"{url_list + str(rule)}</br>"
+
+    # blueprintのurlマップが作れん。。
+    # for bp in app.blueprints.items():
+    #     print(str(bp))
+    #     for b in bp:
+    #         print(str(b))
+    return url_list
 
 
 @app.route('/hello')
