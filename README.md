@@ -133,6 +133,7 @@ PyDevのデバッグビューで↓を実行する。
 ※注意  
 
 * リモートデバッグ時の場合は、settrace()の引数にIP入れる。  
+  * のかと思ったけど↓（リモートデバッグ）は無理だった。。
   * pydevd.settrace("192.168.0.200")みたいな感じ、多分。。  
   * [PyDev公式](http://www.pydev.org/manual_adv_remote_debugger.html) の"Important Notes"参照
 
