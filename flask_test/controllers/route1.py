@@ -1,3 +1,4 @@
+import logging
 import random
 from threading import current_thread, local
 from time import sleep
@@ -11,6 +12,8 @@ from flask_test.models.exceptions import MyBlueprintException
 from flask_test.models.TestJsonSerialize import TestJsonSerialize
 
 app_route1 = Blueprint("route1", __name__, url_prefix="/route1")
+
+logging.basicConfig(level=logging.DEBUG)
 
 
 @app_route1.errorhandler(MyBlueprintException)
@@ -29,6 +32,8 @@ def exception_raiser():
 
 @app_route1.route("/test")
 def test():
+    logging.info("logging-test_1: /route1/test")
+    logging.info("logging-test_2: /route1/test")
     return "/route1/test"
 
 

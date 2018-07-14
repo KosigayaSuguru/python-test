@@ -89,3 +89,36 @@ class TestClass():
         b = 1
         c = {"hoge", 123}
         print("")
+
+    class TestFlask():
+
+        @pytest.fixture
+        def myclient(self):
+            import flask_test
+            flask_test.app.config["TESTING"] = True
+            client = flask_test.app.test_client()
+            yield client
+
+        def test_flask_test(self, myclient):
+
+            # ネストを綺麗にしたい時は↓
+            # https://docs.python.jp/3/library/unittest.mock-examples.html#nesting-patches
+
+            with patch("logging.info") as mock_logger1:
+                with patch("logging.debug") as mock_logger2:
+                    response = myclient.get("/route1/test")
+
+                    # APIのステータスコードの確認
+                    assert 200 == response.status_code
+
+                    # 出力されたログの確認1
+                    args, kwargs = mock_logger1.call_args_list[0]
+                    assert "logging-test_1: /route1/test" in args
+
+                    # 出力されたログの確認2
+                    args, kwargs = mock_logger1.call_args_list[1]
+                    assert "logging-test_2: /route1/test" in args
+
+                    # debugログが呼ばれてないことの確認
+                    assert not mock_logger2.called
+                    pass
