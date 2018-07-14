@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "${workspaceFolder}\\venv_flask\\Scripts\\python.exe",
+    "python.pythonPath": "${workspaceFolder}/venv_flask/Scripts/python.exe",
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
@@ -14,7 +14,7 @@
         "markdown.css"
     ],
     "python.venvFolders": [
-        "venv_flask",
+        "${workspaceFolder}/venv_flask",
     ],
     "python.unitTest.pyTestArgs": [
         "-s",
