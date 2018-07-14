@@ -148,6 +148,25 @@ python -m pytest
 ファイルを指定しない場合、test_*.pyがすべて実行される。  
 ファイルを指定した場合、そのファイルのみ実行される。
 
+### flask_testにあるpytestをコマンドラインから起動する
+
+1. "C:\self\program\python-test\venv_flask\Scripts\activate.bat"
+2. set PYTHONPATH=C:\self\program\python-test
+3. cd C:\self\program\python-test
+4. pytest -s flask_test
+
+※  
+PYTHONPATHにパスが通すのがポイント  
+python のインタラプタから  
+
+```python
+import sys
+sys.path
+```
+
+※を実行して、C:\self\program\python-test が入っていること
+
+
 ### print()した内容を出力する
 
 ```bash
