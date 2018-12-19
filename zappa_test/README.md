@@ -6,6 +6,15 @@
 python -m virtualenv venv_zappa_test
 venv_zappa_test\Scripts\activate
 pip install -r requirements.txt
+zappa init
+※↑はとりあえず全部enterでOK
+zappa deploy dev
+```
+
+## 終了時
+
+```cmd
+zappa undeploy dev
 ```
 
 ## 困ったら
