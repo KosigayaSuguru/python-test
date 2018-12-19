@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"python.venvPath": "C:\\self\\program\\python-test\\zappa_test\\venv_zappa_test",
+		"python.pythonPath": "C:\\self\\program\\python-test\\zappa_test\\venv_zappa_test\\Scripts\\python.exe"
+	}
+}
