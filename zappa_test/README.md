@@ -11,6 +11,13 @@ zappa init
 zappa deploy dev
 ```
 
+## 2回目以降
+
+```cmd
+cd venv_zappa_test\Scripts\activate
+zappa update dev
+```
+
 ## 終了時
 
 ```cmd
