@@ -34,6 +34,14 @@ zappa undeploy dev
 zappa undeploy dev
 ```
 
+### zappa deployするとスケジュールが生成される
+
+以下の設定をfalseにする。
+
+```json
+"keep_warm": false
+```
+
 ## 参考サイト
 
 ### zappaの設定をほぼ丸パクリしたサイト
